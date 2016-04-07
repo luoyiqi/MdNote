@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -29,5 +33,6 @@ dependencies {
 
     compile 'com.commonsware.cwac:anddown:0.2.+'
 
+    compile 'io.reactivex:rxjava:1.1.2'
     compile 'com.squareup.retrofit2:retrofit:2.0.1'
 }
