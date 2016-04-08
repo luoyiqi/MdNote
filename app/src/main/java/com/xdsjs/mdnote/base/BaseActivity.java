@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 
+import com.xdsjs.mdnote.application.MdNoteApplication;
 import com.xdsjs.mdnote.utils.ActivityManager;
 
 
@@ -26,6 +27,40 @@ public abstract class BaseActivity<VM extends BaseViewModel, B extends ViewDataB
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityManager.getInstance().addActivity(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MdNoteApplication.getInstance().setCurrentActivity(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        clearReferences();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        clearReferences();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
     }
 
     /**
@@ -94,5 +129,11 @@ public abstract class BaseActivity<VM extends BaseViewModel, B extends ViewDataB
             intent.putExtras(pBundle);
         }
         startActivity(intent);
+    }
+
+    private void clearReferences() {
+        Activity currActivity = MdNoteApplication.getInstance().getCurrentActivity();
+        if (this.equals(currActivity))
+            MdNoteApplication.getInstance().setCurrentActivity(null);
     }
 }

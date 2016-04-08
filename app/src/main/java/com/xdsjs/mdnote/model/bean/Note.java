@@ -10,6 +10,12 @@ public class Note {
     private String review;//内容预览
     private String image;//文章中的图像
 
+    public Note(String title, String date, String review) {
+        this.title = title;
+        this.date = date;
+        this.review = review;
+    }
+
     public String getTitle() {
         return title;
     }

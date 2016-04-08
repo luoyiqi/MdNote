@@ -5,4 +5,12 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- recy_mainpage_item -->
+    <string name="recy_mainpage_item_title">标题</string>
+    <string name="recy_mainpage_item_date">2016/1/2</string>
+    <string name="recy_mainpage_item_review">内容</string>
+
+    <!-- menu -->
+    <string name="menu_share">Share</string>
 </resources>
