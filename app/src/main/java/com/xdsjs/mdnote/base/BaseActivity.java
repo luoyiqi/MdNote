@@ -15,7 +15,7 @@ import com.xdsjs.mdnote.utils.ActivityManager;
 /**
  * Base {@link Activity} class for every Activity in this application.
  */
-public abstract class BaseActivity<VM extends ViewModel, B extends ViewDataBinding> extends AppCompatActivity {
+public abstract class BaseActivity<VM extends BaseViewModel, B extends ViewDataBinding> extends AppCompatActivity {
 
     protected String TAG = "****" + this.getClass().getSimpleName() + "****";
 

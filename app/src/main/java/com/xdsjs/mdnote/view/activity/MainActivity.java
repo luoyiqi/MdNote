@@ -1,4 +1,4 @@
-package com.xdsjs.mdnote.view;
+package com.xdsjs.mdnote.view.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -29,6 +29,7 @@ public class MainActivity extends BaseActivity<MainActVM, ActivityMainBinding>
 
     private void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("MdNote");
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
