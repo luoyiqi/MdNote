@@ -37,7 +37,6 @@ public class MainActVM extends BaseViewModel {
         notes.add(new Note("a", "4", "4"));
         notes.add(new Note("a", "5", "5"));
         notes.add(new Note("a", "6", "6"));
-
         MainActAdapter adapter = new MainActAdapter(MdNoteApplication.getInstance(), notes);
         mainActAdapter.set(adapter);
     }
