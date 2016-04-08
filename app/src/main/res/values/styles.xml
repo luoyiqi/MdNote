@@ -9,7 +9,6 @@
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:textColorPrimary">@color/abc_search_url_text_pressed</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
