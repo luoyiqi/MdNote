@@ -21,7 +21,7 @@
             android:clickable="true"
             app:cardBackgroundColor="@color/cardview_light_background"
             app:cardCornerRadius="2dp"
-            app:cardElevation="6dp">
+            app:cardElevation="5dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"

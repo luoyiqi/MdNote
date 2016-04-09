@@ -2,27 +2,22 @@ package com.xdsjs.mdnote.view.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.xdsjs.mdnote.R;
 import com.xdsjs.mdnote.base.BaseActivity;
-import com.xdsjs.mdnote.databinding.ActivityMdnoteBinding;
-import com.xdsjs.mdnote.viewModel.MdNoteActVM;
+import com.xdsjs.mdnote.databinding.ActivityHandWriteBinding;
+import com.xdsjs.mdnote.viewModel.HandWriteActVM;
 
-/**
- * 作者: hzsongjinsheng on 2016-04-08 16:48
- * 邮箱: hzsongjinsheng@corp.netease.com
- */
-public class MdNoteActivity extends BaseActivity<MdNoteActVM, ActivityMdnoteBinding> {
+public class HandWriteActivity extends BaseActivity<HandWriteActVM, ActivityHandWriteBinding> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setViewModel(new MdNoteActVM());
-        setBinding(DataBindingUtil.<ActivityMdnoteBinding>setContentView(this, R.layout.activity_mdnote));
-        getBinding().setMdNoteVM(getViewModel());
+        setViewModel(new HandWriteActVM());
+        setBinding(DataBindingUtil.<ActivityHandWriteBinding>setContentView(this, R.layout.activity_hand_write));
+        getBinding().setHandWriteVM(getViewModel());
         initView();
     }
 
@@ -49,12 +44,7 @@ public class MdNoteActivity extends BaseActivity<MdNoteActVM, ActivityMdnoteBind
             case R.id.action_settings:
                 return true;
             case R.id.nav_review:
-                String content = getBinding().etMdNote.getText().toString();
-                if (!TextUtils.isEmpty(content)) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("content", content);
-                    openActivity(ReviewActivity.class, bundle);
-                }
+                openActivity(ReviewActivity.class);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

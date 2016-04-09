@@ -1,28 +1,24 @@
 package com.xdsjs.mdnote.view.activity;
 
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.xdsjs.mdnote.R;
 import com.xdsjs.mdnote.base.BaseActivity;
-import com.xdsjs.mdnote.databinding.ActivityMdnoteBinding;
-import com.xdsjs.mdnote.viewModel.MdNoteActVM;
+import com.xdsjs.mdnote.databinding.ActivityReviewBinding;
+import com.xdsjs.mdnote.viewModel.ReviewActVM;
 
-/**
- * 作者: hzsongjinsheng on 2016-04-08 16:48
- * 邮箱: hzsongjinsheng@corp.netease.com
- */
-public class MdNoteActivity extends BaseActivity<MdNoteActVM, ActivityMdnoteBinding> {
+public class ReviewActivity extends BaseActivity<ReviewActVM, ActivityReviewBinding> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setViewModel(new MdNoteActVM());
-        setBinding(DataBindingUtil.<ActivityMdnoteBinding>setContentView(this, R.layout.activity_mdnote));
-        getBinding().setMdNoteVM(getViewModel());
+        setViewModel(new ReviewActVM());
+        setBinding(DataBindingUtil.<ActivityReviewBinding>setContentView(this, R.layout.activity_review));
+        getBinding().setReviewActVM(getViewModel());
         initView();
     }
 
@@ -30,6 +26,16 @@ public class MdNoteActivity extends BaseActivity<MdNoteActVM, ActivityMdnoteBind
         setSupportActionBar(getBinding().toolbar);
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //将WebView背景设置成透明的
+        getBinding().wvReview.setBackgroundColor(Color.TRANSPARENT);
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle.containsKey("content")) {
+
+            String html = getViewModel().markdownTohtml(bundle.getString("content"));
+
+            getBinding().wvReview.loadData(html, "text/html", "utf-8");
+        }
     }
 
     @Override
@@ -49,12 +55,7 @@ public class MdNoteActivity extends BaseActivity<MdNoteActVM, ActivityMdnoteBind
             case R.id.action_settings:
                 return true;
             case R.id.nav_review:
-                String content = getBinding().etMdNote.getText().toString();
-                if (!TextUtils.isEmpty(content)) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("content", content);
-                    openActivity(ReviewActivity.class, bundle);
-                }
+                openActivity(ReviewActivity.class);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -1,9 +1,7 @@
 package com.xdsjs.mdnote.view.activity;
 
-import android.annotation.TargetApi;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
