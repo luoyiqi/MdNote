@@ -12,4 +12,7 @@
     <dimen name="mid_font_size">16sp</dimen>
     <dimen name="small_font_size">12sp</dimen>
 
+    <!-- bottom bar -->
+    <dimen name="bottom_bar_height">30dp</dimen>
+
 </resources>

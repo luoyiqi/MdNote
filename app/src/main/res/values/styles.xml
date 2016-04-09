@@ -20,4 +20,23 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+
+    <style name="bottom_bar_item">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/bottom_bar_height</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">@dimen/mid_font_size</item>
+        <item name="android:onClick">onBottomItemClicked</item>
+        <item name="android:background">@drawable/botton_item_selector</item>
+    </style>
+
+    <style name="divider_vertical">
+        <item name="android:layout_width">0.5dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:background">@color/dark_grey</item>
+    </style>
+
 </resources>

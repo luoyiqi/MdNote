@@ -87,4 +87,12 @@ public class MainActivity extends BaseActivity<MainActVM, ActivityMainBinding>
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (getBinding().fab.isExpanded()) {
+            getBinding().fab.collapse();
+        }
+    }
 }

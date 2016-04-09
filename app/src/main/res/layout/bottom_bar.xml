@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="mdNoteVM"
+            type="com.xdsjs.mdnote.viewModel.MdNoteActVM" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            style="@style/bottom_bar_item"
+            android:tag="#"
+            android:text="#" />
+
+        <ImageView style="@style/divider_vertical" />
+
+        <Button
+            style="@style/bottom_bar_item"
+            android:tag="-"
+            android:text="-" />
+
+        <ImageView style="@style/divider_vertical" />
+
+        <Button
+            style="@style/bottom_bar_item"
+            android:tag="**"
+            android:text="**" />
+
+        <ImageView style="@style/divider_vertical" />
+
+        <Button
+            style="@style/bottom_bar_item"
+            android:tag=">"
+            android:text=">" />
+
+        <ImageView style="@style/divider_vertical" />
+
+        <Button
+            style="@style/bottom_bar_item"
+            android:tag="![]()"
+            android:text="![]()" />
+
+        <ImageView style="@style/divider_vertical" />
+
+        <Button
+            style="@style/bottom_bar_item"
+            android:tag="[]()"
+            android:text="[]()" />
+
+    </LinearLayout>
+
+</layout>

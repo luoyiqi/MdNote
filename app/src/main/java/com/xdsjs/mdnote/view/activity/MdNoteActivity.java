@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.xdsjs.mdnote.R;
 import com.xdsjs.mdnote.base.BaseActivity;
@@ -60,4 +61,13 @@ public class MdNoteActivity extends BaseActivity<MdNoteActVM, ActivityMdnoteBind
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    public void onBottomItemClicked(View view) {
+        String content = (String) view.getTag();
+        String old = getBinding().etMdNote.getText().toString();
+        String newContent = old + content;
+        getBinding().etMdNote.setText(newContent);
+        getBinding().etMdNote.setSelection(newContent.length());
+    }
+
 }
