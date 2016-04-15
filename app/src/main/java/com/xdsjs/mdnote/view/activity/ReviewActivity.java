@@ -33,14 +33,13 @@ public class ReviewActivity extends BaseActivity<ReviewActVM, ActivityReviewBind
         if (bundle.containsKey("content")) {
 
             String html = getViewModel().markdownTohtml(bundle.getString("content"));
-
-            getBinding().wvReview.loadData(html, "text/html", "utf-8");
+            //webView.loadData(html,"text/html","utf-8")会造成中文乱码
+            getBinding().wvReview.loadData(html, "text/html; charset=UTF-8", null);
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.md_note, menu);
         return true;
     }
